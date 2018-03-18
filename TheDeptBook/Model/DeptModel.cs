@@ -4,7 +4,6 @@ namespace TheDeptBook.Model
 {
     public class DeptModel
     {
-        //public List<Person> persons = new List<Person>();
         private List<Loan> loan1 = new List<Loan>();
         private List<Loan> loan2 = new List<Loan>();
         private List<Loan> loan3 = new List<Loan>();
@@ -16,7 +15,7 @@ namespace TheDeptBook.Model
 
         public DeptModel()
         {
-            //Instantiere data til visning i modellen
+            // Instantierer data til visning i modellen
             loan1.Add(new Loan("Kaffe", -9));
 
             loan1.Add(new Loan("Kage", -12));

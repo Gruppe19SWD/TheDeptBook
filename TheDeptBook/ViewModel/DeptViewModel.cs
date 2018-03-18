@@ -12,9 +12,9 @@ namespace TheDeptBook.ViewModel
 {
     public class DeptViewModel : BaseViewModel
     {
-        //at den arver fra BaseViewModel er grundet en ide til videre implementation hvor de forskellige views kører på forskellige viewmodels
-        //og hvilket view der vises ville være bestemt af den property set under her
-       // public BaseViewModel ViewModel { get; set; }
+        // DeptViewModel arver fra BaseViewModel grundet en ide til videre implementering, hvor de forskellige views kører på forskellige viewmodels.
+        // Her ville det view der vises være bestemt af den property set her under
+        // public BaseViewModel ViewModel { get; set; }
 
 
 
@@ -25,22 +25,12 @@ namespace TheDeptBook.ViewModel
             DM = _DM;
         }
 
-        //henter listerne der skal vises fra deptmodellen
+        // Henter listerne, der skal vises fra deptmodellen
         public List<Person> PersonList => DM.Persons;
         public List<Loan> SelectedPersonLoan => DM.SelectedPerson.Loans;
 
 
-
-
-
-        #region Commands
-
-        
-
-        #endregion
-
-
-        //sætter selectedPerson i modellen og laver onPropertyChanged på relevante properties
+        // Sætter SelectedPerson i modellen og laver onPropertyChanged på relevante properties
         public Person SelectedPerson
         {
             get
@@ -55,13 +45,13 @@ namespace TheDeptBook.ViewModel
                     DM.SelectedPerson = value;
                     DM.NameOfSelectedPerson = value.Name;
                     OnPropertyChanged("NameOfSelectedPerson");
-                    //ny selected person starter også en ny onPropertyChanged på lånet der vises i view 2
+                    // Ny valgt person (SelectedPerson) starter også en ny onPropertyChanged på lånet, der vises i view 2 (DetailsWindow)
                     OnPropertyChanged("SelectedPersonLoan");
                 }
             }
         }
-        
-        //ændrer navnet ved ny selectedPerson og kalder onPropertyChanged
+
+        // Ændrer navnet ved ny SelectedPerson og kalder onPropertyChanged
         public string NameOfSelectedPerson
         {
             get
@@ -75,15 +65,11 @@ namespace TheDeptBook.ViewModel
             }
             set
             {
-                DM.NameOfSelectedPerson = DM.SelectedPerson.Name; 
+                DM.NameOfSelectedPerson = DM.SelectedPerson.Name;
                 OnPropertyChanged();
             }
 
         }
-        
-
-        
-
 
     }
 }
